@@ -3,7 +3,7 @@ const redis = require('redis')
 const client = redis.createClient();
 client.connect();
 
-const homeMenu = (bot, chatId) => {
+const homeMenu = (bot, chatId, message) => {
     const inlineKeyboard = {
         reply_markup: {
             inline_keyboard: [
@@ -15,7 +15,7 @@ const homeMenu = (bot, chatId) => {
         }
     };
 
-    bot.sendMessage(chatId, "به ربات ترجمه خوش اومدی!", inlineKeyboard)
+    bot.sendMessage(chatId, message, inlineKeyboard)
 }
 
 const sendTranslateKeyboard = (bot, chatId, field, command, keyboard, textMessage, messageId) => {

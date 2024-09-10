@@ -23,11 +23,11 @@ const messages = require("./utils/messages")
 
 
 // start command
-bot.onText(/\/start/, (msg, match) => actions.homeMenu(bot, msg.chat.id));
+bot.onText(/\/start/, (msg, match) => actions.homeMenu(bot, msg.chat.id, "به ربات مترجم خوش اومدی 🙌🤖"));
 
 bot.on('callback_query', (query) => {
     const myActions = ["google", "microsoft"]
-    const myLangs = ["fa", "en", "fr", "es", "pr","ar"]
+    const myLangs = ["fa", "en", "fr", "es", "pr", "ar"]
 
 
     const command = query.data
@@ -66,7 +66,7 @@ bot.on('message', async (msg) => {
             await client.del(`user:${chatId}:action`)
             await client.del(`user:${chatId}:lang`)
         }
-        actions.homeMenu(bot, msg.chat.id)
+        actions.homeMenu(bot, msg.chat.id, "از ترجمه راضی بودی؟ یه بار دیگه هم امتحان کن😊")
     }
 })
 
